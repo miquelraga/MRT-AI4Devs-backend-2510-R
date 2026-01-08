@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { addCandidate, getCandidateById } from '../presentation/controllers/candidateController';
+import { updateCandidateStageController } from '../presentation/controllers/applicationController';
 
 const router = Router();
 
@@ -18,5 +19,11 @@ router.post('/', async (req, res) => {
 });
 
 router.get('/:id', getCandidateById);
+
+/**
+ * PUT /candidates/:id/stage
+ * Actualiza la etapa del proceso de entrevista de un candidato
+ */
+router.put('/:id/stage', updateCandidateStageController);
 
 export default router;
